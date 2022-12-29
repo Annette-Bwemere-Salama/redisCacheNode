@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require("axios");
+const redis = require("redis")
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -11,26 +12,6 @@ async function fetchApiData(species) {
     console.log("Request sent to the API");
     return apiResponse.data;
 }
-
-// async function getSpeciesData(req,res) {
-//     const species = req.params.species;
-//     let results;
-//     // results = await fetchApiData(species);
-// } try {
-//     results =  fetchApiData(species)
-//     if(results.length === 0){
-//         throw "API returned an empty array"
-//     }
-//     res.send({
-//         fromCache: false,
-//         data: results,
-//     });
-// } catch (error) {
-//     console.log(error);
-//     res.status(404).Send("Data unavailable");
-// }
-
-
 
 
 async function getSpeciesData(req, res) {
